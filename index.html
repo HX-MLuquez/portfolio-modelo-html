@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thomas A. Anderson | Hacker Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar__brand">
+          <a href="#" class="logo"
+            ><img src="./assets/img/logo_title.png" alt="logo"
+          /></a>
+        </div>
+        <div class="navbar__toggle" id="navbarToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="navbar__links" id="navbarLinks">
+          <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Thomas A. Anderson</h1>
+        <p class="tagline">"I know the Matrix... but I know more"</p>
+        <a href="#projects" class="btn">Enter the Code</a>
+      </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+      <h2>My Projects</h2>
+      <div class="projects__grid">
+        <div
+          class="project"
+          onclick="redirectToDetail('Escape from the Matrix', './assets/img/e.jpg', 'Escape from the Matrix is an immersive web experience...', ['JavaScript', 'Node.js', 'WebSockets', 'Three.js', 'CSS Animations'])"
+        >
+          <h3>Escape from the Matrix</h3>
+          <p>Brief description of the project.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div
+          class="project"
+          onclick="redirectToDetail('Project Two', './assets/img/a.jpg', 'Description of Project Two...', ['Tech1', 'Tech2', 'Tech3'])"
+        >
+          <h3>Project Two</h3>
+          <p>Brief description of Project Two.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div
+          class="project"
+          onclick="redirectToDetail('Trinity Compiler', './assets/img/b.jpeg', 'A custom low-level programming language to simulate network breaches.', ['C', 'Assembly', 'Networking'])"
+        >
+          <h3>Trinity Compiler</h3>
+          <p>
+            A custom low-level programming language to simulate network
+            breaches.
+          </p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div
+          class="project"
+          onclick="redirectToDetail('Red Pill OS', './assets/img/c.jpg', 'An operating system designed to bypass conventional firewall defenses.', ['C', 'Kernel Development', 'Security'])"
+        >
+          <h3>Red Pill OS</h3>
+          <p>
+            An operating system designed to bypass conventional firewall
+            defenses.
+          </p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+        <div
+          class="project"
+          onclick="redirectToDetail('Simulation Override', './assets/img/d.jpg', 'A network manipulation tool for altering virtual realities.', ['JavaScript', 'WebSockets', 'Simulation'])"
+        >
+          <h3>Simulation Override</h3>
+          <p>A network manipulation tool for altering virtual realities.</p>
+          <a href="#" class="btn">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section skills">
+      <h2>Skills</h2>
+      <div class="skills__list">
+        <div class="skill">
+          <h3>Hacking</h3>
+          <p>
+            Proficient in penetrating secure systems, cryptography, and network
+            intrusion.
+          </p>
+        </div>
+        <div class="skill">
+          <h3>AI Development</h3>
+          <p>
+            Expert in neural networks, AI system design, and deep learning
+            algorithms.
+          </p>
+        </div>
+        <div class="skill">
+          <h3>Virtual Simulations</h3>
+          <p>
+            Skilled in creating and manipulating immersive virtual environments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+      <h2>About Me</h2>
+      <div class="text_about">
+        <p>
+          I am Thomas A. Anderson, known to some as "Neo". By day, I'm a
+          software engineer and developer. By night, I'm a hacker, driven by a
+          mission to expose the truth.
+        </p>
+        <p>
+          I navigate both the digital and real worlds, fighting for freedom in a
+          system dominated by illusions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <h2>Contact Me</h2>
+      <p>If you're ready to break free from the Matrix, let's connect.</p>
+      <a href="contact.html" class="btn">Send a Message</a>
+      <div>
+        <p>- - - - - - - - - -</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Thomas A. Anderson | Hacker Portfolio</p>
+    </footer>
+
+    <script>
+      // Botón hamburguesa navbar function
+  
+        const toggleButton = document.getElementById("navbarToggle");
+        const navbarLinks = document.getElementById("navbarLinks");
+
+        toggleButton.addEventListener("click", () => {
+          // Añadir o remover la clase 'active' al contenedor de los enlaces
+          navbarLinks.classList.toggle("active");
+        });
+
+        console.log("IN SCRIPTS")
+        // RE-DIRECT to DETAIL card project
+        function redirectToDetail(
+          title,
+          image,
+          description,
+          technologies,
+          github,
+          demo
+        ) {
+          const techString = JSON.stringify(technologies);
+          window.location.href = `detail_project.html?title=${encodeURIComponent(
+            title
+          )}&image=${encodeURIComponent(
+            image
+          )}&description=${encodeURIComponent(
+            description
+          )}&technologies=${encodeURIComponent(
+            techString
+          )}&github=${encodeURIComponent(github)}&demo=${encodeURIComponent(
+            demo
+          )}`;
+        }
+      
+    </script>
+  </body>
+</html>
